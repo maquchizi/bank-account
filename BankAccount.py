@@ -3,7 +3,7 @@ from abc import ABCMeta, abstractmethod
 
 class BankAccount(object):
     """
-        BankAccount Abstract Base Class that allows us to abstract account methods
+        BankAccount Abstract Base Class that allows us to abstract account functions
     """
 
     __metaclass__ = ABCMeta
@@ -21,7 +21,7 @@ class BankAccount(object):
 
     @Balance.setter
     def Balance(self, balance):
-        if not balance >= self.minimum_balance:
+        if not balance >= self.minimum_balance:  # Don't set up account if minimum balance requirement for account type not met
             raise Exception("The minimum balance for this account is %d" % self.minimum_balance)
         self._Balance = balance
 
@@ -29,7 +29,7 @@ class BankAccount(object):
         self._Balance += amount
 
     def withdraw(self, amount):
-        if amount > self._Balance - self.minimum_balance:
+        if amount > self._Balance - self.minimum_balance:  # Don't withdraw beyond the minimum balance for account type
             raise Exception("You cannot withdraw %d. Insufficient funds." % amount)
         else:
             self._Balance -= amount
