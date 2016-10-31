@@ -44,7 +44,9 @@ class BankAccount(object):
 
 
 class CurrentAccount(BankAccount):
-    """CurrentAccount has a minimum balance of 1000"""
+    """
+        CurrentAccount has a minimum balance of 1000
+    """
 
     minimum_balance = 1000
 
@@ -53,7 +55,9 @@ class CurrentAccount(BankAccount):
 
 
 class SavingsAccount(BankAccount):
-    """CurrentAccount has a minimum balance of 5000"""
+    """
+        SavingsAccount has a minimum balance of 5000
+    """
 
     minimum_balance = 5000
 
