@@ -21,7 +21,8 @@ class BankAccount(object):
 
     @Balance.setter
     def Balance(self, balance):
-        if not balance >= self.minimum_balance:  # Don't set up account if minimum balance requirement for account type not met
+        # Don't set up account if minimum balance requirement for account type not met
+        if not balance >= self.minimum_balance:
             raise Exception("The minimum balance for this account is %d" % self.minimum_balance)
         self._Balance = balance
 
@@ -29,7 +30,8 @@ class BankAccount(object):
         self._Balance += amount
 
     def withdraw(self, amount):
-        if amount > self._Balance - self.minimum_balance:  # Don't withdraw beyond the minimum balance for account type
+        # Don't withdraw beyond the minimum balance for account type
+        if amount > self._Balance - self.minimum_balance:
             raise Exception("You cannot withdraw %d. Insufficient funds." % amount)
         else:
             self._Balance -= amount
